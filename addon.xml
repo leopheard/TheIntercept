@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.audio.theinterceptpodcasts" name="The Intercept" version="1.1.2" provider-name="leopheard">
+  <requires>
+    <import addon="xbmc.python" version="2.26.0"/>
+    <import addon="script.module.xbmcswift2" version="2.4.0"/>
+    <import addon="script.module.beautifulsoup4" version="4.3.1"/>
+    <import addon="script.module.requests" version="1.1.0"/>
+    <import addon="script.module.routing" version="0.2.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>audio</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language></language>
+    <summary lang="en">The Intercept spoken edition and three podcasts created by The Intercept</summary>
+    <description lang="en">The Intercept [Spoken Edition] and their 4 podcasts: Intercepted with Jeremy Scahill, Deconstructed with columinst Mehdi Hasan and Murderville, GA with investigative reporters Liliana Segura and Jordan Smith cover murder in a small southern town, and Somebody, a podcast challenging the official narrative of a male found shot outside a Chicago Police station.</description>
+    <license>The MIT License (MIT)</license>
+    <forum></forum>
+    <email>leopheard@gmail.com</email>
+    <source>https://github.com/leopheard/TheInterceptPodcasts</source>
+    <website>https://theintercept.com/podcasts/</website>
+        	<assets>
+			<icon>resources/media/icon.jpg</icon>
+			<fanart>resources/media/fanart.jpg</fanart>
+			<screenshot>resources/media/1.jpg</screenshot>
+			<screenshot>resources/media/2.jpg</screenshot>
+			<screenshot>resources/media/3.jpg</screenshot>
+			<screenshot>resources/media/4.jpg</screenshot>
+		</assets>
+  </extension>
+</addon>
