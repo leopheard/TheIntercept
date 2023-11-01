@@ -13,10 +13,10 @@ url5 = "https://rss.art19.com/american-isis"
 @plugin.route('/')
 def main_menu():
     items = [
-        {
-            'label': plugin.get_string(30000), 
-            'path': plugin.url_for('spoken_edition'),
-            'thumbnail': "https://github.com/leopheard/thedeprogram/blob/master/resources/media/icon.jpg?raw=true"},
+#        {
+#            'label': plugin.get_string(30000), 
+#            'path': plugin.url_for('spoken_edition'),
+#            'thumbnail': "https://github.com/leopheard/thedeprogram/blob/master/resources/media/icon.jpg?raw=true"},
         {
             'label': plugin.get_string(30001), 
             'path': plugin.url_for('all_deconstructed'),
