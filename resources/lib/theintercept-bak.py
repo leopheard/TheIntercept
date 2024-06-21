@@ -2,64 +2,95 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
-#DECONSTRUCTED#
 def get_soup1(url1):
     page = requests.get(url1)
     soup1 = BeautifulSoup(page.text, 'html.parser')
     print("type: ", type(soup1))
     return soup1
-#INTERCEPTED#
 def get_soup2(url2):
     page = requests.get(url2)
     soup2 = BeautifulSoup(page.text, 'html.parser')
     print("type: ", type(soup2))
     return soup2
-#MURDER,GA#
 def get_soup3(url3):
     page = requests.get(url3)
     soup3 = BeautifulSoup(page.text, 'html.parser')
     print("type: ", type(soup3))
     return soup3
-#SOMEBODY#
 def get_soup4(url4):
     page = requests.get(url4)
     soup4 = BeautifulSoup(page.text, 'html.parser')
     print("type: ", type(soup4))
     return soup4
 
-def get_playable_deconstructed(soup):
+def get_playable_podcast01(soup1):
     subjects = []
-    for content in soup.find_all('item'):
-        try:
-            link = content.find('enclosure').get('url')
-            title = content.find('title').get_text()
-            thumbnail = content.find('itunes:image').get('href')
-            desc = content.find('itunes:subtitle').get_text()  # Extract the subtitle
+    for content in soup1.find_all('item'):
+        try:        
+            link = content.find('enclosure')
+            link = link.get('url')
+            print("\n\nLink: ", link)
+            title = content.find('title')
+            title = title.get_text()
+            thumbnail = content.find('itunes:image')
+            thumbnail = thumbnail.get('href')
+            desc = content.find('itunes:subtitle')
+            desc = desc.get_text()
         except AttributeError:
             continue
-        
         item = {
-            'url': link,
-            'title': title,
-            'thumbnail': thumbnail,
-            'description': desc,
+                'url': link,
+                'title': title,
+		'description': desc,
+                'thumbnail': thumbnail,
         }
         subjects.append(item)
-    
     return subjects
+def compile_playable_podcast01(playable_podcast01):
+    items = []
+    for podcast in playable_podcast01:
+        items.append({
+            'label': podcast['title'],
+            'thumbnail': podcast['thumbnail'],
+            'path': podcast['url'],
+            'info': {'plot': podcast['description']},
+            'is_playable': True,
+    })
+    return items
 
+def get_playable_deconstructed(soup1):
+    subjects = []
+    for content in soup1.find_all('item'):
+        try:        
+            link = content.find('enclosure')
+            link = link.get('url')
+            print("\n\nLink: ", link)
+            title = content.find('title')
+            title = title.get_text()
+            thumbnail = content.find('itunes:image')
+            thumbnail = thumbnail.get('href')
+            desc = content.find('itunes:subtitle')
+            desc = desc.get_text()
+        except AttributeError:
+            continue
+        item = {
+                'url': link,
+                'title': title,
+		'description': desc,
+                'thumbnail': thumbnail,
+        }
+        subjects.append(item) 
+    return subjects
 def compile_playable_deconstructed(playable_deconstructed):
     items = []
     for podcast in playable_deconstructed:
         items.append({
             'label': podcast['title'],
             'thumbnail': podcast['thumbnail'],
+            'info': {'plot': podcast['description']},
             'path': podcast['url'],
             'is_playable': True,
-            'info': {
-                'plot': podcast.get('description', ''),
-            }
-        })
+    })
     return items
 
 def get_playable_intercepted(soup2):
