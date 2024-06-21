@@ -10,3 +10,10 @@ __Version 1.1.1__
 __Version 1.1.2__
 1. Removed latest links, left in full links
 2. Added new Somebody podcast
+
+__Version 1.1.3__
+1. Updated RSS feeds - they had moved servers
+2. Removed American Isis podcast, references and media - now behind an Audible paywall
+3. Updated the version of Python required to 3
+4. Removed Spoken Edition - has been discontinued it seems
+5. Updated logos for all podcasts
